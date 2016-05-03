@@ -23,13 +23,13 @@ requirements of your network.
 
 Leiningen:
 ```
-[orgsync/metrics-statsd "0.1.0"]
+[metrics-statsd "0.1.0"]
 ```
 
 Maven:
 ```xml
 <dependency>
-  <groupId>orgsync</groupId>
+  <groupId>metrics-statsd</groupId>
   <artifactId>metrics-statsd</artifactId>
   <version>0.1.0</version>
 </dependency>
