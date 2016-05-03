@@ -134,6 +134,9 @@ To send metrics, `put!` metrics onto the client, which returns a
                  :type  :counter
                  :value 0})
 ;; => true
+
+;; close the client socket:
+(s/close! client)
 ```
 
 Metrics will be batched into payloads of max size within max latency and
@@ -162,6 +165,9 @@ sent from clients.
 ;; {:name test0.counter, :value 0.0, :type :counter}
 ;; {:name test1.counter, :value 1.0, :type :counter}
 ;; {:name test2.counter, :value 2.0, :type :counter}
+
+;; close the server socket:
+(s/close! server)
 ```
 
 ## License
