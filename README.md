@@ -105,7 +105,7 @@ to the `StatsDReporter` constructor parameters mentioned above:
 ### StatsD Client
 
 You can use metrics-statsd's batching statsd client independently from
-Coda Hale's metrics library. It provides a [Manifold][] stream that
+Coda Hale's metrics library. It provides a [Manifold stream][] that
 sends any metrics put on the stream. Metrics are maps with the following
 keys:
 
@@ -115,7 +115,8 @@ keys:
 | `:type` | symbol | `:gauge`, `:counter`, `:timer`, `:histogram`, `:meter`, or `:set` |
 | `:value` | double |metric value; all numbers coerced to doubles |
 
-To send metrics, `put!` metrics onto the client:
+To send metrics, `put!` metrics onto the client, which returns a
+[Manifold deferred][]:
 
 ```clojure
 (require '[manifold.stream :as s]
@@ -140,7 +141,9 @@ sent to the server.
 
 ### StatsD Server
 
-metrics-statsd also provides a server which understands batches:
+metrics-statsd also provides a server which understands batches. 
+`server` returns a [Manifold stream][] source containing all metrics
+sent from clients.
 
 ```clojure
 ;; create a server that listens on port 8125
@@ -180,3 +183,5 @@ limitations under the License.
 [StatsD]: https://github.com/b/statsd_spec
 [Coda Hale's metrics library]: http://metrics.dropwizard.io
 [Manifold]: http://aleph.io/manifold/rationale.html
+[Manifold stream]: http://aleph.io/manifold/streams.html
+[Manifold deferred]: http://aleph.io/manifold/deferreds.html
