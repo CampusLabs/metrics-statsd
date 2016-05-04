@@ -30,7 +30,7 @@
 (extend-protocol Serialize
   Counter
   (serialize [counter name _ _]
-    [{:name  name
+    [{:name  (prefix name "count")
       :type  :counter
       :value (.getCount counter)}])
 
