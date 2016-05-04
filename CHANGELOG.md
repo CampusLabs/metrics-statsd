@@ -3,7 +3,13 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 
+## [0.1.1] - 2016-05-04
+### Validation
+
+Added validation to discard metrics with invalid names, types, or values
+
 ## 0.1.0 - 2016-05-03
 ### Initial Release
 
 [Unreleased]: https://github.com/orgsync/metrics-statsd/compare/0.1.0...HEAD
+[0.1.1]: https://github.com/orgsync/metrics-statsd/compare/0.1.0...0.1.1

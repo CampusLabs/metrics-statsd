@@ -1,6 +1,6 @@
 # metrics-statsd
 
-A batching [StatsD][] reporter for [Coda Hale's metrics library][] along
+A batching [StatsD] reporter for [Coda Hale's metrics library] along
 with a simple StatsD client and server library.
 
 ## Rationale
@@ -23,7 +23,7 @@ requirements of your network.
 
 Leiningen:
 ```
-[metrics-statsd "0.1.0"]
+[metrics-statsd "0.1.1"]
 ```
 
 Maven:
@@ -31,7 +31,7 @@ Maven:
 <dependency>
   <groupId>metrics-statsd</groupId>
   <artifactId>metrics-statsd</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
 </dependency>
 ```
 
@@ -105,7 +105,7 @@ to the `StatsDReporter` constructor parameters mentioned above:
 ### StatsD Client
 
 You can use metrics-statsd's batching statsd client independently from
-Coda Hale's metrics library. It provides a [Manifold stream][] that
+Coda Hale's metrics library. It provides a [Manifold stream] that
 sends any metrics put on the stream. Metrics are maps with the following
 keys:
 
@@ -116,7 +116,7 @@ keys:
 | `:value` | double |metric value; all numbers coerced to doubles |
 
 To send metrics, `put!` metrics onto the client, which returns a
-[Manifold deferred][]:
+[Manifold deferred]:
 
 ```clojure
 (require '[manifold.stream :as s]
@@ -145,7 +145,7 @@ sent to the server.
 ### StatsD Server
 
 metrics-statsd also provides a server which understands batches. 
-`server` returns a [Manifold stream][] source containing all metrics
+`server` returns a [Manifold stream] source containing all metrics
 sent from clients.
 
 ```clojure
