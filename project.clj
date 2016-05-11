@@ -12,7 +12,7 @@
 ;; See the License for the specific language governing permissions and
 ;; limitations under the License.
 
-(defproject metrics-statsd "0.1.3"
+(defproject metrics-statsd "0.1.4"
   :description "A batching StatsD reporter for Coda Hale's metrics library"
   :url "https://github.com/orgsync/metrics-statsd"
   :license {:name "Apache 2.0"
@@ -25,4 +25,4 @@
                  [org.clojure/clojure "1.8.0"]]
   :aot [metrics-statsd.reporter]
   :profiles {:dev {:dependencies [[criterium "0.4.4"]]}}
-  :main metrics-statsd.reporter)
+  :main metrics-statsd.reporter.StatsDReporter)
