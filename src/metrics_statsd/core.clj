@@ -2,7 +2,7 @@
   (:require [metrics-statsd
              [communication :as comm]
              [reporter :as reporter]])
-  (:import metrics-statsd.reporter.StatsDReporter))
+  (:import metrics_statsd.reporter.StatsDReporter))
 
 (defn new-statsd-reporter
   ([registry] (new-statsd-reporter registry {}))

@@ -6,7 +6,7 @@
              [communication :as comm]
              [serialization :refer [serialize]]])
   (:gen-class
-    :name metrics-statsd.reporter.StatsDReporter
+    :name metrics_statsd.reporter.StatsDReporter
     :extends com.codahale.metrics.ScheduledReporter
     :constructors {[com.codahale.metrics.MetricRegistry
                     String]
@@ -36,7 +36,7 @@
                       stop   parentStop})
   (:import com.codahale.metrics.MetricFilter
            java.util.concurrent.TimeUnit
-           metrics-statsd.reporter.StatsDReporter
+           metrics_statsd.reporter.StatsDReporter
            [org.slf4j Logger LoggerFactory]))
 
 (def default-host "127.0.0.1")
