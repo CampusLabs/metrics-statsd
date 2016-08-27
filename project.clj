@@ -12,7 +12,7 @@
 ;; See the License for the specific language governing permissions and
 ;; limitations under the License.
 
-(defproject metrics-statsd "0.1.5"
+(defproject metrics-statsd "0.1.6"
   :description "A batching StatsD reporter for Coda Hale's metrics library"
   :url "https://github.com/orgsync/metrics-statsd"
   :license {:name "Apache 2.0"
@@ -21,7 +21,7 @@
                  [byte-streams "0.2.2"]
                  [gloss "0.2.6"]
                  [io.dropwizard.metrics/metrics-core "3.1.2"]
-                 [manifold "0.1.4"]
+                 [manifold "0.1.5"]
                  [org.clojure/clojure "1.8.0"]]
   :aot :all
   :jvm-opts ["-Dclojure.compiler.direct-linking=true"]
