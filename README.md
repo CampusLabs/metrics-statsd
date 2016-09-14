@@ -144,7 +144,7 @@ sent to the server.
 
 ### StatsD Server
 
-metrics-statsd also provides a server which understands batches. 
+metrics-statsd also provides a server which understands batches.
 `server` returns a [Manifold stream] source containing all metrics
 sent from clients.
 
