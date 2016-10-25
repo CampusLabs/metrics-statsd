@@ -23,7 +23,7 @@ requirements of your network.
 
 Leiningen:
 ```
-[metrics-statsd "0.1.2"]
+[metrics-statsd "0.1.8"]
 ```
 
 Maven:
@@ -31,7 +31,7 @@ Maven:
 <dependency>
   <groupId>metrics-statsd</groupId>
   <artifactId>metrics-statsd</artifactId>
-  <version>0.1.2</version>
+  <version>0.1.8</version>
 </dependency>
 ```
 

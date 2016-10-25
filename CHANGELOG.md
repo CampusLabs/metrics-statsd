@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 
+## [0.1.8] - 2016-10-25
+### Upgrade dependencies
+
 ## [0.1.5] - 2016-05-11
 ### Fix class name
 
@@ -23,7 +26,8 @@ Added validation to discard metrics with invalid names, types, or values
 ## 0.1.0 - 2016-05-03
 ### Initial Release
 
-[Unreleased]: https://github.com/orgsync/metrics-statsd/compare/0.1.5...HEAD
+[Unreleased]: https://github.com/orgsync/metrics-statsd/compare/0.1.8...HEAD
+[0.1.8]: https://github.com/orgsync/metrics-statsd/compare/0.1.5...0.1.8
 [0.1.5]: https://github.com/orgsync/metrics-statsd/compare/0.1.4...0.1.5
 [0.1.4]: https://github.com/orgsync/metrics-statsd/compare/0.1.3...0.1.4
 [0.1.3]: https://github.com/orgsync/metrics-statsd/compare/0.1.2...0.1.4
