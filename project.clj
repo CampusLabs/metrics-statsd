@@ -21,7 +21,7 @@
                  [byte-streams "0.2.2"]
                  [gloss "0.2.6"]
                  [io.dropwizard.metrics/metrics-core "3.1.2"]
-                 [manifold "0.1.6-alpha1"]
+                 [manifold "0.1.6-alpha3"]
                  [org.clojure/clojure "1.8.0"]]
   :aot [metrics-statsd.core]
   :jvm-opts ["-Dclojure.compiler.direct-linking=true"]
