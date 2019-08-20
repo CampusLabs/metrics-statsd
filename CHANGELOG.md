@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 
+## [0.1.9] - 2019-08-20
+### Upgrade dependencies
+### Remove AOT as compiling with clojure 1.8 was causing problems to potemkin from other dependencies 
+
 ## [0.1.8] - 2016-10-25
 ### Upgrade dependencies
 
