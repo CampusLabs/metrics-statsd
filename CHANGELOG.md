@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 
+## [0.1.9] - 2019-08-20
+### Use clojure 1.10.1
+### Upgrade dependencies
+
 ## [0.1.8] - 2016-10-25
 ### Upgrade dependencies
 
