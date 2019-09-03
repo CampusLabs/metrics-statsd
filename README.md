@@ -23,7 +23,7 @@ requirements of your network.
 
 Leiningen:
 ```
-[metrics-statsd "0.1.8"]
+[metrics-statsd "0.1.9"]
 ```
 
 Maven:
@@ -31,7 +31,7 @@ Maven:
 <dependency>
   <groupId>metrics-statsd</groupId>
   <artifactId>metrics-statsd</artifactId>
-  <version>0.1.8</version>
+  <version>0.1.9</version>
 </dependency>
 ```
 
@@ -44,6 +44,11 @@ Maven repository:
 ```
 
 ### Metrics Reporter
+
+### JDK 9 and higher
+You need to allow unnamed module usage if running in JDK 9 or above.
+Add the following to java command line invocation: 
+`--add-opens jdk.management/com.sun.management.internal=ALL-UNNAMED`
 
 #### Java
 
@@ -93,6 +98,7 @@ A Clojure function is also provided to generate a new reporter:
 to the `StatsDReporter` constructor parameters mentioned above:
 ```clojure
 (statsd/new-statsd-reporter
+  registry
   {:host          "127.0.0.1"
    :port          8125
    :max-size      1432

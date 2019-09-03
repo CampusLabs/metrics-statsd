@@ -6,34 +6,34 @@
              [communication :as comm]
              [serialization :refer [serialize]]])
   (:gen-class
-    :name metrics_statsd.reporter.StatsDReporter
-    :extends com.codahale.metrics.ScheduledReporter
-    :constructors {[com.codahale.metrics.MetricRegistry
-                    String]
-                   [com.codahale.metrics.MetricRegistry
-                    String
-                    com.codahale.metrics.MetricFilter
-                    java.util.concurrent.TimeUnit,
-                    java.util.concurrent.TimeUnit]
+   :name metrics_statsd.reporter.StatsDReporter
+   :extends com.codahale.metrics.ScheduledReporter
+   :constructors {[com.codahale.metrics.MetricRegistry
+                   String]
+                  [com.codahale.metrics.MetricRegistry
+                   String
+                   com.codahale.metrics.MetricFilter
+                   java.util.concurrent.TimeUnit,
+                   java.util.concurrent.TimeUnit]
 
-                   [com.codahale.metrics.MetricRegistry
-                    String
-                    Integer
-                    Integer
-                    Integer
-                    com.codahale.metrics.MetricFilter
-                    java.util.concurrent.TimeUnit,
-                    java.util.concurrent.TimeUnit]
-                   [com.codahale.metrics.MetricRegistry
-                    String
-                    com.codahale.metrics.MetricFilter
-                    java.util.concurrent.TimeUnit,
-                    java.util.concurrent.TimeUnit]}
-    :init init
-    :state state
-    :exposes-methods {start  parentStart
-                      report parentReport
-                      stop   parentStop})
+                  [com.codahale.metrics.MetricRegistry
+                   String
+                   Integer
+                   Integer
+                   Integer
+                   com.codahale.metrics.MetricFilter
+                   java.util.concurrent.TimeUnit,
+                   java.util.concurrent.TimeUnit]
+                  [com.codahale.metrics.MetricRegistry
+                   String
+                   com.codahale.metrics.MetricFilter
+                   java.util.concurrent.TimeUnit,
+                   java.util.concurrent.TimeUnit]}
+   :init init
+   :state state
+   :exposes-methods {start  parentStart
+                     report parentReport
+                     stop   parentStop})
   (:import com.codahale.metrics.MetricFilter
            java.util.concurrent.TimeUnit
            metrics_statsd.reporter.StatsDReporter
@@ -71,28 +71,30 @@
   ([this gauges counters histograms meters timers]
    (let [{:keys [metric-stream]} @(.state this)]
      @(d/zip'
-        (s/put! metric-stream gauges)
-        (s/put! metric-stream counters)
-        (s/put! metric-stream histograms)
-        (s/put! metric-stream meters)
-        (s/put! metric-stream timers)))))
+       (s/put! metric-stream gauges)
+       (s/put! metric-stream counters)
+       (s/put! metric-stream histograms)
+       (s/put! metric-stream meters)
+       (s/put! metric-stream timers)))))
 
-(defn -start [this period unit]
-  (info "starting statsd metrics reporter")
-  (let [{:keys [host port max-size max-latency]} @(.state this)
-        client (comm/client host port max-size max-latency)
-        convert-rate #(.convertRate this %)
-        convert-duration #(.convertDuration this %)
-        metric-stream (s/stream)]
-    (s/connect
+(defn -start
+  ([this period unit]
+   (-start this period period unit))
+  ([this delay period unit]
+   (info "starting statsd metrics reporter")
+   (let [{:keys [host port max-size max-latency]} @(.state this)
+         client           (comm/client host port max-size max-latency)
+         convert-rate     #(.convertRate this %)
+         convert-duration #(.convertDuration this %)
+         metric-stream    (s/stream)]
+     (s/connect
       (map->metrics metric-stream convert-rate convert-duration)
       client)
 
-    (swap! (.state this) assoc
-           :client client
-           :metric-stream metric-stream)
-
-    (.parentStart this period unit)))
+     (swap! (.state this) assoc
+            :client client
+            :metric-stream metric-stream)
+     (.parentStart this delay period unit))))
 
 (defn -stop [this]
   (let [{:keys [client]} @(.state this)]
